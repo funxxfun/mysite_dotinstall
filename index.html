@@ -6,6 +6,11 @@
   <style>
     img {
       border-radius: 50%;
+      cursor: pointer;
+      transition: border-raudius .5s;
+    }
+    .changed {
+      border-radius: 0;
     }
     section {
       border-width: 1px;
@@ -25,10 +30,21 @@
 </head>
 <body>
   <section>
-    <img src="river.jpg" size 100*100 alt="アイコン画像です">
+    <img src="river.jpg" size 100*100 alt="アイコン画像です" id="trigger">
     <h1>白澤 芙美</h1>
-    <p>プログラミング初心者です。日々の勉強、頑張っています</p>
+    <p id="target">プログラミング初心者です。日々の勉強、頑張っています</p>
   </section>
   <footer>(c) fumi.s</footer>
+
+  <script>
+    'use strict';
+
+    function process() {
+      document.getElementById('target').textContent = '真面目にやっております！';
+      document.getElementById('trigger').classList.add('changed');
+    }
+    
+    document.getElementById('trigger').addEventListener('click', process);
+  </script>
 </body>
 </html>
